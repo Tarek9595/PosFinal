@@ -1,7 +1,7 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import CashierLayout from './layouts/CashierLayout';
-import AdminLayout from './layouts/AdminLayout';
-import CategoryProducts from './pages/CategoryProducts';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CashierLayout from "./layouts/CashierLayout";
+import AdminLayout from "./layouts/AdminLayout";
+import CategoryProducts from "./pages/CategoryProducts";
 
 export default function App() {
   return (
@@ -9,7 +9,14 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<CashierLayout />}>
-            <Route index element={<h1 className="h-[200vh] bg-violet-500">Dashboard Of Cashier</h1>} />
+            <Route
+              index
+              element={
+                <h1 className="h-[200vh] bg-violet-500">
+                  Dashboard Of Cashier
+                </h1>
+              }
+            />
             <Route path=":categoryName" element={<CategoryProducts />} />
           </Route>
 
