@@ -2,10 +2,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CashierLayout from "./layouts/CashierLayout";
 import AdminLayout from "./layouts/AdminLayout";
 import CategoryProducts from "./pages/CategoryProducts";
+import LoginStaff from "./pages/LoginStaff";
 
 export default function App() {
   return (
-    <div className="w-full h-dvh overflow-hidden">
+    <div className="w-full h-dvh">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<CashierLayout />}>
@@ -30,7 +31,7 @@ export default function App() {
           <Route path="/orders" />
           <Route path="/kitchen" />
 
-          <Route path="/login" />
+          <Route path="/login" element={<LoginStaff />} />
           <Route path="*" element={<h1>Error 404 | Page Not Found</h1>} />
         </Routes>
       </BrowserRouter>
