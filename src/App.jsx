@@ -10,22 +10,13 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<CashierLayout />}>
-            <Route
-              index
-              element={
-                <h1 className="h-[200vh] bg-violet-500">
-                  Dashboard Of Cashier
-                </h1>
-              }
-            />
+            <Route index element={<CategoryProducts />} />
             <Route path=":categoryName" element={<CategoryProducts />} />
           </Route>
 
           <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<h1>Dashboard Page</h1>} />
-            <Route path="staff" element={<h1>Staff Management Page</h1>} />
-            <Route path="menu" element={<h1>Menu Edit Page</h1>} />
-            <Route path="sales" element={<h1>Sales Report Page</h1>} />
+            <Route index element={<AdminLayout />} />
+            <Route path=":adminNavCat" element={<AdminLayout />} />
           </Route>
 
           <Route path="/orders" />
@@ -38,5 +29,3 @@ export default function App() {
     </div>
   );
 }
-
-// 3 Layouts (Admin - Cashier - Login - 404)
