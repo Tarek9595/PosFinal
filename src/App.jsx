@@ -3,6 +3,10 @@ import CashierLayout from "./layouts/CashierLayout";
 import AdminLayout from "./layouts/AdminLayout";
 import CategoryProducts from "./pages/CategoryProducts";
 import LoginStaff from "./pages/LoginStaff";
+import DashboardPage from "./componenets/DashboardPage";
+import StaffManagement from "./componenets/StaffManagement";
+import MenuEditor from "./componenets/MenuEditor";
+import SalesReports from "./componenets/SalesReports";
 
 export default function App() {
   return (
@@ -15,8 +19,10 @@ export default function App() {
           </Route>
 
           <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminLayout />} />
-            <Route path=":adminNavCat" element={<AdminLayout />} />
+            <Route index element={<DashboardPage />} />
+            <Route path="staff" element={<StaffManagement />} />
+            <Route path="menu" element={<MenuEditor />} />
+            <Route path="sales" element={<SalesReports />} />
           </Route>
 
           <Route path="/orders" />

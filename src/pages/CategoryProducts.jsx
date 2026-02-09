@@ -26,7 +26,7 @@ export default function CategoryProducts() {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-between gap-8">
+      <div className="flex flex-wrap gap-4">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((el) => (
             <Plate

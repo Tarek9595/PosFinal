@@ -74,6 +74,14 @@ export const products = [
     img: imgFour,
     kind: "sides",
   },
+  {
+    id: 9,
+    name: "Classic Wagyu Burger",
+    ingredients: "Organic beef, cheddar, truffle mayo",
+    price: 18.5,
+    img: imgOne,
+    kind: "mainCourse",
+  },
 ];
 
 export const categories = [

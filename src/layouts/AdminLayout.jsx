@@ -4,14 +4,14 @@ import { MdOutlineDashboard } from "react-icons/md";
 import { HiOutlineUsers } from "react-icons/hi";
 import { HiOutlineBookOpen } from "react-icons/hi2";
 import { LuChartPie } from "react-icons/lu";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 export default function AdminLayout() {
   const catAdminNav = [
-    { name: "dashboard", path: "/", icon: MdOutlineDashboard },
-    { name: "staff", path: "/staff", icon: HiOutlineUsers },
-    { name: "menu", path: "/menu", icon: HiOutlineBookOpen },
-    { name: "sales", path: "/sales", icon: LuChartPie },
+    { name: "dashboard", path: "/admin", icon: MdOutlineDashboard },
+    { name: "staff management", path: "staff", icon: HiOutlineUsers },
+    { name: "menu editor", path: "menu", icon: HiOutlineBookOpen },
+    { name: "sales reports", path: "sales", icon: LuChartPie },
   ];
 
   return (
@@ -37,11 +37,14 @@ export default function AdminLayout() {
             <NavLink
               to={el.path}
               key={index}
+              end
               className={({ isActive }) =>
-                isActive && "bg-mainGreen/10 text-mainGreen " + " activeGreen"
+                (isActive && "bg-mainGreen/10 text-mainGreen ") + " activeGreen"
               }
             >
-              <el.icon />
+              <div className="w-6 h-6">
+                <el.icon className="w-full h-full" />
+              </div>
               <p className="text-[10px] uppercase font-bold">{el.name}</p>
             </NavLink>
           ))}
@@ -51,41 +54,9 @@ export default function AdminLayout() {
           <h1>log out</h1>
         </button>
       </div>
-      <div className="h-full grow flex flex-col bg-amber-600"></div>
+      <div className="h-full grow overflow-y-auto  bg-[#f8fafc] p-12 flex justify-center">
+        <Outlet />
+      </div>
     </div>
   );
 }
-
-/* <div className="w-full px-2 flex flex-col grow h-2.5  items-center gap-4 ">
-           {categories.map((el, index) => (
-            <NavLink
-              to={el.path}
-              key={index}
-              className={({ isActive }) => {
-                if (isActive && el.name !== "main") {
-                  return "bg-mainGreen/10 text-mainGreen " + " activeGreen";
-                } else {
-                  return "hover:bg-white" + " activeGreen";
-                }
-              }}
-            >
-              {el.name === "main" ? (
-                <img
-                  className="w-23.75 transition-transform duration-300 hover:scale-110  active:scale-95"
-                  src={Logo}
-                  alt="Logo"
-                />
-              ) : (
-                <>
-                  <div className="icon-outline w-6 h-6">
-                    <el.icon className="w-full h-full" />
-                  </div>
-                  <p className="text-[10px] uppercase font-bold">{el.name}</p>
-                </>
-              )}
-            </NavLink>
-          ))}
-        </div>
-        <div className="w-full flex justify-center py-3">
-          <FiLogOut />
-        </div> */
